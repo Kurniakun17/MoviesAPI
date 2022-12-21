@@ -5,8 +5,8 @@ module.exports = app => {
   router.get("/", movies.findall)
   router.get("/:id", movies.show)
   router.post("/", movies.create)
-  router.put("/", movies.update)
-  router.delete("/", movies.delete)
+  router.put("/:id", movies.update)
+  router.delete("/:id", movies.delete)
 
   app.use("/movies", router)
 }

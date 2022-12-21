@@ -1,7 +1,7 @@
 module.exports = mongoose => {
   const schema = mongoose.Schema({
     movie_name: String,
-    release_date: Date,
+    release: Date,
     director: String,
     synopsis: String,
     score: Number,
@@ -10,5 +10,12 @@ module.exports = mongoose => {
     timestamps: true
   })
 
-  return mongoose.model("movies", schema)
-}
+  schema.method("toJSON", function() {
+    const {__v, _id, ...object} = this.toObject();
+    object.id = _id;
+
+    return object;
+  })
+
+  return mongoose.model("movies", schema);
+}   

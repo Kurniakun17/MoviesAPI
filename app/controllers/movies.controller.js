@@ -2,25 +2,50 @@ const db = require("../models")
 const Movies = db.movies
 
 exports.findall = (req, res) => {
-  res.json({message:"Hai, success"})
+  Movies.find()
+    .then(data => res.send(data))
+    .catch(err => res.status(500).send({message: err.message}))
 }
 
 exports.create = (req, res) => {
-  Movies.body.release_date = new Date(Movies.release_date)
+  req.body.release = new Date(req.body.release)
 
   Movies.create(req.body)
-  .then(() => res.send({message: "Data berhasil disimpan"}))
-  .catch(err => res.status(500).send({message: err}))
+    .then(() => res.send({message: "Data berhasil disimpan"}))
+    .catch(err => res.status(500).send({message: err.message}))
 }
 
 exports.show = (req, res) => {
+  const id = req.params.id;
+
+  Movies.findById(id)
+    .then(data => res.send(data))
+    .catch(err => res.status(500).send({message: err.message}))
+}
+
+
+exports.update = (req, res) => {
+  const id = req.params.id;
   
+  Movies.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
+    .then(data => {
+      if(!data){
+        res.status(404).send({message: "Not Found!"})
+      }
+      res.send({message: "Data berhasil diupdate"})
+    })
+    .catch(err => res.status(500).send({message: err.message}))
 }
 
 exports.delete = (req, res) => {
-  
-}
+  const id = req.params.id;
 
-exports.update = (req, res) => {
-
-}
+  Movies.findByIdAndRemove(id)
+    .then(data => {
+      if(!data){
+        res.status(404).send({message: "Not Found!"})
+      }
+      res.send({message: "Data berhasil dihapus"})
+    })
+    .catch(err => res.status(500).send({message: err.message}))
+} 
