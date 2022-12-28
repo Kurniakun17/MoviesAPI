@@ -11,7 +11,7 @@ const corsConfig = {
 app.use(cors(corsConfig))
 app.use(express.json())
 
-// konek ke database
+// connect to database
 const mongooseConfig = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -28,5 +28,5 @@ db.mongoose.connect(db.url, mongooseConfig)
 require("./app/routes/movies.routes")(app);
 
 const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => console.log(`Server is running on ${PORT}`))  
+const HOST = process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0';
+app.listen(PORT, HOST,() => console.log(`Server is running on ${PORT}, HOST : ${HOST}`))  
