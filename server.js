@@ -27,6 +27,6 @@ db.mongoose.connect(db.url, mongooseConfig)
 // routes
 require("./app/routes/movies.routes")(app);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const HOST = process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0';
 app.listen(PORT, HOST,() => console.log(`Server is running on ${PORT}, HOST : ${HOST}`))  
