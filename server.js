@@ -22,7 +22,7 @@ db.mongoose.connect(db.url, mongooseConfig)
   .catch((err)=>{
     console.log(`failed to connect, ${err}`);
     process.exit();
-  })
+})
 
 // routes
 require("./app/routes/movies.routes")(app);

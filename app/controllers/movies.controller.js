@@ -23,7 +23,6 @@ exports.show = (req, res) => {
     .catch(err => res.status(500).send({message: err.message}))
 }
 
-
 exports.update = (req, res) => {
   const id = req.params.id;
   
@@ -48,4 +47,4 @@ exports.delete = (req, res) => {
       res.send({message: "Data berhasil dihapus"})
     })
     .catch(err => res.status(500).send({message: err.message}))
-} 
+}
