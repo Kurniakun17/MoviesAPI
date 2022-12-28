@@ -75,4 +75,4 @@ Delete http://localhost:3000/{id}
 
 ## Authors
 
-- [@kurniakun17](https://www.github.com/octokatherine)
+- [@Kurniakun17](https://www.github.com/Kurniakun17)
