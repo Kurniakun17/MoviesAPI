@@ -1,13 +1,12 @@
 
 # MoviesAPI
 
-MoviesAPI is a RESTful API about movies where people can add, edit, read, and 
-delete a data about movies (CRUD).
+MoviesAPI is a RESTful API about movies where people can create, read, update, and delete a data about movies (CRUD). This API is connected to a database, so all of the changes will remain in it. 
 
-This API is connected to a database, so all of the changes will remain in the database.
+This project built using ExpressJS, MongoDB, and it's already deployed in Amazon Web Service EC2, so people can use this API for free.
 
 ## Run Locally
-To run this project, make sure that you have MongoDB installed on your device.
+To run this project locally, make sure that you have MongoDB installed on your device.
 
 if you haven't install MongoDB, you can download it from here
 
@@ -45,25 +44,25 @@ Run the server
 ### Get All Movies Datas
 Endpoint 
 ```BASH
-GET http://localhost:3000/
+GET http://13.213.46.135:5000/Movies
 ```
 
 ### Get Single Movie Data
 Endpoint
 ```BASH
-GET http://localhost:3000/{id}
+GET http://13.213.46.135:5000/Movies/{id}
 ```
 
 ### Update Movie Data
 Endpoint
 ```BASH
-PUT http://localhost:3000/{id}
+PUT http://13.213.46.135:5000/Movies/{id}
 ```
 
 ### Delete Movie Data
 Endpoint
 ```BASH
-Delete http://localhost:3000/{id}
+DELETE http://13.213.46.135:5000/Movies/{id}
 ```
 
 ## Badges
